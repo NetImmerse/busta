@@ -1,0 +1,3 @@
+displayName = Buster Sword
+author = NTMS
+version = 1.0.1
