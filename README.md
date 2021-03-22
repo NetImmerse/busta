@@ -1,5 +1,5 @@
 # busta
-Buster Sword mod source code, feer free to commit stuff to the beta branch
+Buster Sword mod source code, beta branch is free for edit
 
 to-do list:
 * learn how to make mods properly
