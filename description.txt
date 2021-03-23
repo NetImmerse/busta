@@ -1,5 +1,9 @@
 I wanted a Buster Sword that doesn't suck ass and doesn't become unviable after gettig literally any mech boss weapon.
-This is a beta version, projeectiles still need a lot of work to be done.
+This is a beta version that still needs a lot of work to be done.
 
+Changelog
+1.0 - initial release
+1.0.1 - ground Blade Beam, Braver
+1.1.0 - initial Limit implementation
 
 Credits to MistaLOD on Terraria Forums for the spritework.
