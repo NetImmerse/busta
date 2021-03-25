@@ -7,4 +7,5 @@ to-do list:
 * ~~implement limit gauge mechanic~~
 * make limit gauge gui (maybe similay to thorium thrower exhaustion)
 * make a bit fancier limit gfx
+
 etc.
