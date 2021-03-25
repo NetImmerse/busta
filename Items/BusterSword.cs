@@ -28,14 +28,14 @@ namespace Busta.Items
 
 			item.damage = 97; // The damage your item deals
 			item.melee = true; // Whether your item is part of the melee class
-			item.width = 40; // The item texture's width
-			item.height = 40; 
-			item.scale = 1f;// The item texture's height
+			item.width = 55; // The item texture's width
+			item.height = 63; 
+			item.scale = 1.5f;// The item texture's height
 			item.useTime = 28; // The time span of using the weapon. Remember in terraria, 60 frames is a second.
 			item.useAnimation = 28; // The time span of the using animation of the weapon, suggest setting it the same as useTime.
 			item.knockBack = 9; // The force of knockback of the weapon. Maximum is 20
 			item.value = Item.buyPrice(gold: 30); // The value of the weapon in copper coins
-			item.rare = ItemRarityID.Pink; // The rarity of the weapon, from -1 to 13. You can also use ItemRarityID.TheColorRarity
+			item.rare = 7; // The rarity of the weapon, from -1 to 13. You can also use ItemRarityID.TheColorRarity
 			item.UseSound = SoundID.Item1; // The sound when the weapon is being used
 			item.autoReuse = true; // Whether the weapon can be used more than once automatically by holding the use button
 			item.crit = 6; // The critical strike chance the weapon has. The player, by default, has 4 critical strike chance
@@ -110,6 +110,9 @@ namespace Busta.Items
 		public override void HoldItem (Player player)
 		{
 			
+            player.itemLocation.Y = player.Center.Y - 2 * player.direction;
+            player.itemLocation.X = player.Center.X - 2 * player.direction;
+			
 			BustaModPlayer modPlayer = player.GetModPlayer<BustaModPlayer>();
 			modPlayer.BustaLimit = true;
 			
@@ -138,13 +141,13 @@ namespace Busta.Items
 				{
 					BustaModPlayer modPlayer = player.GetModPlayer<BustaModPlayer>();
 					if (modPlayer.BustaLimitGauge == 100){
-						target.AddBuff(BuffID.BrokenArmor, 180);
+						target.AddBuff(BuffID.BrokenArmor, 1800);
 						Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/LimitBraver"));
 						modPlayer.BustaLimitGauge = 0;
 						modPlayer.BustaLimitPing = false;
 					}
 					else{
-						target.AddBuff(BuffID.BrokenArmor, 10);
+						target.AddBuff(BuffID.BrokenArmor, 300);
 						Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Braver"));
 					}
 				}

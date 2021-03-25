@@ -1,9 +1,22 @@
 I wanted a Buster Sword that doesn't suck ass and doesn't become unviable after gettig literally any mech boss weapon.
-This is a beta version that still needs a lot of work to be done.
+This is a somewhat beta version that still needs a lot of work to be done.
+
+Breaker Brade has received a damage buff.
+Buster Sword is a Breaker Blade upgrade (requires some materials plus Broken Hero Sword).
+Buster Sword has two attack modes, primary is a regular attack that shoots Blade Beam, secondary is a slower Braver that applies Broken Armor on hit.
+When Buster Sword is held, player accumulates Limit on receiving damage (amount gained depends on damage received and maximum health). 
+Fully accumulated Limit Break strengthens abilities: Blade Beam travels faster and pierces multiple enemies, Braver swings faster and unleashes a stronger attack on hit with 30-second Broken Armor debuff.
+
+Most likely there will be more versions for hardmode tiers (pre-plantera, pre-moonlord, post-moonlord, etc.)
+Additional feedback regarding balance is welcome on the github repo.
 
 Changelog
 1.0 - initial release
 1.0.1 - ground Blade Beam, Braver
 1.1.0 - initial Limit implementation
+1.1.1 - minor spritework redux, cosmetic blade beam changes
 
-Credits to MistaLOD on Terraria Forums for the spritework.
+
+
+
+Credits to MistaLOD on Terraria Forums for the (old) spritework.
