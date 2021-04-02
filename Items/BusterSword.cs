@@ -25,23 +25,25 @@ namespace Busta.Items
 
 		public override void SetDefaults() 
 		{
-
 			item.damage = 97; // The damage your item deals
 			item.melee = true; // Whether your item is part of the melee class
 			item.width = 55; // The item texture's width
 			item.height = 63; 
-			item.scale = 1.5f;// The item texture's height
+			item.scale = 1.4f;// The item texture's height
 			item.useTime = 28; // The time span of using the weapon. Remember in terraria, 60 frames is a second.
 			item.useAnimation = 28; // The time span of the using animation of the weapon, suggest setting it the same as useTime.
 			item.knockBack = 9; // The force of knockback of the weapon. Maximum is 20
-			item.value = Item.buyPrice(gold: 30); // The value of the weapon in copper coins
+			item.value = Item.buyPrice(gold: 50); // The value of the weapon in copper coins
 			item.rare = 7; // The rarity of the weapon, from -1 to 13. You can also use ItemRarityID.TheColorRarity
 			item.UseSound = SoundID.Item1; // The sound when the weapon is being used
 			item.autoReuse = true; // Whether the weapon can be used more than once automatically by holding the use button
 			item.crit = 6; // The critical strike chance the weapon has. The player, by default, has 4 critical strike chance
 			item.useStyle = ItemUseStyleID.SwingThrow;
-				
+			item.damage = 121;
+			item.useTurn = false;
+					
 		}
+		
 
 		public override void AddRecipes() 
 		{
@@ -60,37 +62,47 @@ namespace Busta.Items
 		}
 		
 		public override bool CanUseItem(Player player) {
+			
 			if (player.altFunctionUse == 2) {
+				
+				item.useTurn = false;
+				item.melee = true;
 				item.useStyle = ItemUseStyleID.SwingThrow;
 				item.shoot = ProjectileID.None;
-				item.UseSound = SoundID.Item71;
+				item.useTime = 36;
+				item.useAnimation = 40;
 				BustaModPlayer modPlayer = player.GetModPlayer<BustaModPlayer>();
 				if (modPlayer.BustaLimitGauge == 100){
-					item.damage = 202;
-					item.useTime = 22;
-					item.useAnimation = 22;
+					item.damage = 222;
 					item.knockBack = 14;
 					item.crit = 25;
+					item.useTime = 22;
+					item.useAnimation = 24;
+					item.UseSound = SoundID.Item45;
+					item.shoot = 0;
 				}
 				else{
-					item.damage = 111;
-					item.useTime = 36;
-					item.useAnimation = 36;
+					item.damage = 141;
 					item.knockBack = 9;
 					item.crit = 6;
+					item.UseSound = SoundID.Item1;
+					item.shoot = 0;
 				}
 					
 			}
 			else {
 				
 				item.useStyle = ItemUseStyleID.SwingThrow;
+				item.useTurn = false;
+				item.melee = true;
 				item.useTime = 28;
 				item.useAnimation = 28;
-				item.UseSound = SoundID.Item1;
 				BustaModPlayer modPlayer = player.GetModPlayer<BustaModPlayer>();
 				if (modPlayer.BustaLimitGauge == 100)
 					{
+						item.UseSound = SoundID.Item45;
 						item.damage = 152;
+						item.crit = 25;
 						item.shoot = ModContent.ProjectileType<Projectiles.BladeBeamLimit>();
 						item.shootSpeed = 10f;
 						modPlayer.BustaLimitGauge = 0;
@@ -98,9 +110,10 @@ namespace Busta.Items
 					}
 				else
 					{
-						item.damage = 97;
+						item.UseSound = SoundID.Item1;
+						item.damage = 121;
 						item.shoot = ModContent.ProjectileType<Projectiles.BladeBeam>();
-						item.shootSpeed = 8f;
+						item.shootSpeed = 8f;	
 					}
 			}
 			return base.CanUseItem(player);
@@ -110,11 +123,11 @@ namespace Busta.Items
 		public override void HoldItem (Player player)
 		{
 			
-            player.itemLocation.Y = player.Center.Y - 2 * player.direction;
+            
+			BustaModPlayer modPlayer = player.GetModPlayer<BustaModPlayer>();
+			player.itemLocation.Y = player.Center.Y - 2 * player.direction;
             player.itemLocation.X = player.Center.X - 2 * player.direction;
 			
-			BustaModPlayer modPlayer = player.GetModPlayer<BustaModPlayer>();
-			modPlayer.BustaLimit = true;
 			
 			if (modPlayer.BustaLimitGauge == 100)
 				{	
